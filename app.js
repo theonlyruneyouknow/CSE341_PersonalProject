@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const db = require('./backend/db/connect');
+
+const db = require('./my-backend-api/backend/db/connect');
+// const db = require('backend/db/connect');
 require('dotenv').config();
 
 // Initialize express app
@@ -16,7 +18,7 @@ const port = process.env.PORT || 8080;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/api/users', require('./backend/routes/users'));
+app.use('/api/users', require('./my-backend-api/backend/routes/users'));
 
 // Connect to Database and Start Server
 db.initDb((err) => {

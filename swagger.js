@@ -9,13 +9,13 @@ const options = {
       version: '1.0.0',
     },
   },
-  apis: ['./backend/routes/users.js'], // Point to your updated routes file for users
+  apis: ['./my-backend-api/backend/routes/users.js'], // Point to your updated routes file for users
 };
 
 const swaggerSpec = swaggerJSDoc(options);
 
 const setupSwagger = (app) => {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use('/my-backend-api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
 module.exports = setupSwagger;
